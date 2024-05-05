@@ -16,6 +16,9 @@ if (!userName || !roomName) {
 // MARK: create socket connection
 const clientIo = io()
 
+// MARK: join
+clientIo.emit('join', { userName, roomName })
+
 const textInput = document.getElementById('textInput') as HTMLInputElement
 const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement
 const chatBoard = document.getElementById('chatBoard') as HTMLDivElement
@@ -60,7 +63,25 @@ const msgHandler = (msg: string) => {
   chatBoard.scrollTop = chatBoard.scrollHeight
 }
 
+const roomMsgHandler = (msg: string) => {
+  
+  const divBox = document.createElement('div')
+  divBox.classList.add('flex','items-center', 'justify-center', 'mb-4')
+  divBox.innerHTML = `
+  <p class="text-sm text-gray-700">${msg}</p>
+  `
+  chatBoard.appendChild(divBox)
+  // scroll to bottom
+  chatBoard.scrollTop = chatBoard.scrollHeight
+}
+
 clientIo.on('join', (msg) => {})
 clientIo.on('chat', (msg) => {
   msgHandler(msg)
+})
+clientIo.on('join', (msg) => {
+  roomMsgHandler(msg)
+})
+clientIo.on('leave', (msg) => {
+  roomMsgHandler(msg)
 })
