@@ -20,8 +20,10 @@ io.on('connection', (socket) => {
       userName, 
       roomName
     )
+    socket.join(userData.roomName)
     userService.addUser(userData)
-    io.emit('join', `${userName} join ${roomName} room`)
+    socket.broadcast.to(userData.roomName).emit('join', `${userName} join the room`)
+    
   })
 
   socket.on('chat', (msg) => {
@@ -32,7 +34,7 @@ io.on('connection', (socket) => {
     const userData = userService.getUser(socket.id)
     const userName = userData?.userName
     if (userName) {
-      io.emit('leave', `${userName} leave the room`)
+      socket.broadcast.to(userData.roomName).emit('leave', `${userName} leave the room`)
     }
     userService.removeUser(socket.id)
   })
@@ -44,8 +46,6 @@ if (process.env.NODE_ENV === "development") {
 } else {
   prodServer(app);
 }
-
-console.log("server side", name);
 
 server.listen(port, () => {
   console.log(`The application is running on port ${port}.`);
