@@ -10,7 +10,7 @@
     "deploy": "gh-pages -d dist",
     "prettier": "prettier -w ./src",
     "clean": "rm -rf dist",
-    "heroku-prebuild": "set NODE_OPTIONS=--openssl-legacy-provider $env:NODE_OPTIONS = --openssl-legacy-provider"
+    "heroku-prebuild": "set NODE_OPTIONS=--openssl-legacy-provider $env:NODE_OPTIONS =--openssl-legacy-provider"
   },
   "author": "",
   "license": "ISC",
