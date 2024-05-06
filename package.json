@@ -6,11 +6,11 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "cross-env NODE_ENV=development nodemon ./src/index.ts",
-    "start": "cross-env NODE_ENV=production ts-node ./src/index.ts",
+    "start": "cross-env NODE_ENV=production ts-node ./src/index.ts --openssl-legacy-provider",
     "deploy": "gh-pages -d dist",
     "prettier": "prettier -w ./src",
     "clean": "rm -rf dist",
-    "heroku-prebuild": "set NODE_OPTIONS=--openssl-legacy-provider $env:NODE_OPTIONS =--openssl-legacy-provider"
+    "heroku-prebuild": "npm audit fix --force"
   },
   "author": "",
   "license": "ISC",
