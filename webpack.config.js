@@ -53,12 +53,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: '[name]/main.html',
+      // filename: '[name]/main.html',
+      filename: 'index.html',
       chunks: ['main'],
       template: './src/client/pages/main/index.html'
     }),
     new HtmlWebpackPlugin({
-      filename: '[name]/chatRoom.html',
+      // filename: '[name]/chatRoom.html',
+      filename: '/chatRoom.html',
       chunks: ['chatRoom'],
       template: './src/client/pages/chatRoom/index.html'
     }),

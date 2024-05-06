@@ -11,6 +11,7 @@ startBtn.addEventListener('click', () => {
   console.log(userName, roomName)
 
   // navigate: 把參數帶去 chatRoom.ts 之後去處理
-  location.href = `/chatRoom/chatRoom.html?user_name=${userName}&room_name=${roomName}`
+  // location.href = `/chatRoom/chatRoom.html?user_name=${userName}&room_name=${roomName}`
+  location.href = `/chatRoom.html?user_name=${userName}&room_name=${roomName}`
   // relocate to: http://localhost:3000/chatRoom/chatRoom.html?user_name=emma&room_name=ROOM4
 })

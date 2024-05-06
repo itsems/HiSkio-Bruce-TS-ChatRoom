@@ -13,7 +13,8 @@ console.log(userName, roomName)
 
 // if user or room empty: redirect
 if (!userName || !roomName) {
-  location.href = '/main/main.html'
+  // location.href = '/main/main.html'
+  location.href = '/'
 }
 
 // MARK: create socket connection
@@ -45,7 +46,8 @@ textInput.addEventListener('keydown', (event) => {
 })
 
 backBtn.addEventListener('click', () => {
-  location.href = '/main/main.html'
+  // location.href = '/main/main.html'
+  location.href = '/'
 })
 
 // append msg to board
