@@ -48,6 +48,7 @@
     "webpack-hot-middleware": "^2.25.1"
   },
   "dependencies": {
+    "gh-pages": "^6.1.1",
     "socket.io": "^4.7.5",
     "socket.io-client": "^4.7.5"
   }
